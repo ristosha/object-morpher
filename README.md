@@ -59,7 +59,39 @@ const user = {
 const transformedUser = transformObject(user, schema);
 ```
 
-Other examples you can find in tests.
+Some examples from tests:
+
+```typescript
+const obj = { name: 'John', age: 30 }
+
+const schema: Schema<typeof obj> = {
+    name: { _compute: (val: string) => val.toUpperCase() },
+    age: { _compute: (val: number) => val + 1 }
+}
+
+// transformObject(obj, schema)
+
+const expected = { name: 'JOHN', age: 31 }
+```
+
+```typescript
+const obj = { fullName: 'Alice Wonderland' }
+
+const schema: Schema = {
+    __composite: {
+      fullName: {
+        _compute: (val: string) => {
+          const [firstName, lastName] = val.split(' ')
+          return { firstName, lastName }
+        }
+      }
+    }
+}
+
+// transformObject(obj, schema)
+
+const expected = { firstName: 'Alice', lastName: 'Wonderland' }
+```
 
 ## ⚠️ Caution   
 
