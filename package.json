@@ -1,7 +1,7 @@
 {
-  "name": "alias-mapper",
-  "version": "1.0.3",
-  "description": "A small utility for mapping aliases in JavaScript objects",
+  "name": "object-morpher",
+  "version": "1.0.0",
+  "description": "Transform and tailor object structures with ease using dynamic compute functions and value aliases",
   "main": "./lib/mod.js",
   "files": [
     "lib/",
@@ -17,8 +17,11 @@
     "prepublishOnly": "deno task backport"
   },
   "keywords": [
+    "object",
     "alias",
-    "mapper"
+    "morpher",
+    "transformer",
+    "object-morpher"
   ],
   "repository": {
     "type": "git",

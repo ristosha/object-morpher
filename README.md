@@ -1,13 +1,18 @@
 # Object-Morpher
 
-Object-Morpher is a TypeScript library designed to transform objects based on a predefined schema. It allows for powerful transformations using compute functions or value mappings, making it ideal for shaping data to fit your application's needs.
+Object-Morpher is an advanced transformation utility designed to work with single-level object structures, such as command-line arguments. It serves as an extension and rewrite of the previous library, alias-mapper, with enhanced capabilities to handle complex data transformations while maintaining a focus on single-level initial objects.
 
 ## Features
 
-- **Compute Functions**: Apply custom functions to properties to compute new values.
-- **Value Mappings**: Define possible values and their aliases to quickly standardize data.
-- **Alias Support**: Use aliases to refer to properties in a more readable or domain-specific way.
-- **TypeScript Support**: Fully typed to enable IntelliSense in your favorite IDE.
+1. **Extended Functionality**: Building upon the foundation of my previous library ([alias-mapper](https://github.com/ristosha/alias-mapper)), Object-Morpher introduces additional features like dynamic compute functions and value mappings, offering more power and flexibility in data shaping.
+
+2. **Single-Level Object Focus**: Despite its advanced features, Object-Morpher remains targeted at processing **single-level** initial objects, ensuring simplicity and ease of use where complex nested structures are not required.
+
+3. **Value Parsing**: It is recommended to use a parsing library such as [**zod**](https://github.com/colinhacks/zod) for handling value parsing and type safety, which complements Object-Morpher's transformation capabilities.
+
+4. **TypeScript Support**: Fully typed to enable IntelliSense in your favorite IDE.
+
+By leveraging Object-Morpher, developers can easily manipulate data structures to fit their application's needs, streamlining the process of data handling and transformation.
 
 It's primarily used with Bun, so use:
 ```shell
@@ -56,6 +61,10 @@ const transformedUser = transformObject(user, schema);
 
 Other examples you can find in tests.
 
+## ⚠️ Caution   
+
+For frequent use cases, it is highly recommended to pre-generate the alias map using `generateAliasMap(schema)`. This practice improves performance by avoiding the overhead of recalculating the map for each transformation, especially when dealing with large schemas or processing numerous objects.
+
 ## API Reference
 
 ### `transformObject(obj, schema, aliasMap?)`
@@ -73,10 +82,6 @@ A schema is defined as an object where each key corresponds to a property in the
 - `_compute`: A function that takes the property's value and returns a new value.
 - `_values`: An object mapping possible values to their aliases. (don't work with `_compute`)
 - `_aliases`: An array of strings representing aliases for the property.
-
-## Contributing
-
-Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting pull requests.
 
 ## License
 
