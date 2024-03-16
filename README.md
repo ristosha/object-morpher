@@ -1,18 +1,18 @@
-# Object-Morpher
+# object-morpher
 
-Object-Morpher is an advanced transformation utility designed to work with single-level object structures, such as command-line arguments. It serves as an extension and rewrite of the previous library, alias-mapper, with enhanced capabilities to handle complex data transformations while maintaining a focus on single-level initial objects.
+object-morpher is an advanced transformation utility designed to work with single-level object structures, such as command-line arguments. It serves as an extension and rewrite of the previous library, alias-mapper, with enhanced capabilities to handle complex data transformations while maintaining a focus on single-level initial objects.
 
 ## Features
 
-1. **Extended Functionality**: Building upon the foundation of my previous library ([alias-mapper](https://github.com/ristosha/alias-mapper)), Object-Morpher introduces additional features like dynamic compute functions and value mappings, offering more power and flexibility in data shaping.
+1. **Extended Functionality**: Building upon the foundation of my previous library ([alias-mapper](https://github.com/ristosha/alias-mapper)), object-morpher introduces additional features like dynamic compute functions and value mappings, offering more power and flexibility in data shaping.
 
-2. **Single-Level Object Focus**: Despite its advanced features, Object-Morpher remains targeted at processing **single-level** initial objects, ensuring simplicity and ease of use where complex nested structures are not required.
+2. **Single-Level Object Focus**: Despite its advanced features, object-morpher remains targeted at processing **single-level** initial objects, ensuring simplicity and ease of use where complex nested structures are not required.
 
-3. **Value Parsing**: It is recommended to use a parsing library such as [**zod**](https://github.com/colinhacks/zod) for handling value parsing and type safety, which complements Object-Morpher's transformation capabilities.
+3. **Value Parsing**: It is recommended to use a parsing library such as [**zod**](https://github.com/colinhacks/zod) for handling value parsing and type safety, which complements object-morpher's transformation capabilities.
 
 4. **TypeScript Support**: Fully typed to enable IntelliSense in your favorite IDE.
 
-By leveraging Object-Morpher, developers can easily manipulate data structures to fit their application's needs, streamlining the process of data handling and transformation.
+By leveraging object-morpher, developers can easily manipulate data structures to fit their application's needs, streamlining the process of data handling and transformation.
 
 It's primarily used with Bun, so use:
 ```shell
@@ -85,4 +85,4 @@ A schema is defined as an object where each key corresponds to a property in the
 
 ## License
 
-Object-Morpher is MIT licensed.
+object-morpher is MIT licensed.
