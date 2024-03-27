@@ -1,6 +1,6 @@
 {
   "name": "object-morpher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform and tailor object structures with ease using dynamic compute functions and value aliases",
   "main": "./lib/mod.js",
   "files": [
