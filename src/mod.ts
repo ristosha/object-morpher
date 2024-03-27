@@ -19,10 +19,14 @@ export type CompositeEntry<T extends object> = {
   [K: string]: CompositeEntryItem<T>
 };
 
-export type CompositeEntryItem<T> = {
+type DeepPartial<T> = T extends object
+  ? { [P in keyof T]?: DeepPartial<T[P]> }
+  : T
+
+export type CompositeEntryItem<T extends object> = {
   _aliases?: string[],
-  _compute?: (value: any) => Partial<T>
-} & Partial<T>;
+  _compute?: (value: any) => DeepPartial<T>
+} & DeepPartial<T>
 
 /**
  * Generates a map of aliases to their corresponding paths within a schema object.
@@ -99,7 +103,7 @@ export function set<T extends Record<string, any>> (obj: T, path: string | strin
   return obj
 }
 
-function getAliasFromValues(values: Record<any, string[]>, value: any): string | number {
+function getAliasFromValues (values: Record<any, string[]>, value: any): string | number {
   for (const key in values) {
     for (const keyValue of values[key]) {
       if (String(value) === String(keyValue)) {
@@ -107,7 +111,7 @@ function getAliasFromValues(values: Record<any, string[]>, value: any): string |
       }
     }
   }
-  return value;
+  return value
 }
 
 
